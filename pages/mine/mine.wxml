@@ -1,0 +1,62 @@
+<!--pages/mine/mine.wxml-->
+<view class="page">
+    <view class="page__hd userInfo" bindtap='openUser'>
+        <view class='header-bg'>
+            <!--头部背景图-->
+            <view class='header-top'></view>
+            <view class='header-body'></view>
+        </view>
+        <view class='aboutMe'>
+            <image src="{{userInfo.avatarUrl}}" wx:if="{{userInfo.avatarUrl}}" class='avatar'></image>
+            <view class='infomation'>
+                <view class='username userText'>{{resDataVar.username}}：{{userInfo.nickName}}</view>
+                <view class='account userText'>{{resDataVar.account}}：{{username}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="page__bd page__bd_spacing setting">
+        <view class="userList">
+            <view class="title">
+                <text class='name'>{{resDataVar.school}}</text>
+                <text class='cont'>{{schoolName}}</text>
+            </view>
+            <view class="title">
+                <text class='name'>{{resDataVar.className}}</text>
+                <text class='cont'>{{className}}</text>
+            </view>
+            <view class="title">
+                <text class='name'>{{resDataVar.binding}}</text>
+                <text class='cont'>{{username}}</text>
+            </view>
+            <view class="title">
+                <view class="weui-cell__bd">
+                    <text class='name'>{{resDataVar.language}}</text>
+                    <picker class="cont" bindchange="changeLan" value="{{Index}}" range="{{language}}">
+                        {{language[Index]}}
+                    </picker>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access right_line"></view>
+            </view>
+        </view>
+        <view class='logout'>
+            <image src='{{resDataVar.logoffSrc}}' bindtap='logout' class='logoutBtn'></image>
+        </view>
+    </view>
+</view>
+<!--弹窗  -->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-header">
+        <view class="btn-cancel" bindtap="onCancel" data-status="cancel">
+            <image src="/images/cancel.png"></image>
+        </view>
+        <!-- <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view> -->
+    </view>
+    <view class="modal-content">
+        {{resDataVar.logout}}
+    </view>
+    <view class='modal-footer'>
+        <view class="cancel" bindtap="onCancel" data-status="cancel">{{resDataVar.cancel}}</view>
+        <view class="confirm" bindtap="onConfirm" data-status="confirm">{{resDataVar.confirm}}</view>
+    </view>
+</view>

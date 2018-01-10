@@ -1,0 +1,592 @@
+.page {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+ scroll-view {
+  height: 100%;
+} 
+
+.lessonsHead {
+    width: 100%;
+    height: 260rpx;
+    background-size: 100% 100%;
+    box-shadow: 0px 3px 3px #dedede;
+    text-align: center;
+    background-position: center;
+    margin-bottom: 50rpx;
+}
+
+.lessonsTitle {
+    width: 200rpx;
+    height: 150rpx;
+    background: #fff;
+    border-radius: 50% 50% 0 0;
+    margin: 0 auto;
+    position: relative;
+    top: 200rpx;
+}
+
+.lessonsTitle image {
+    width: 200rpx;
+    height: 120rpx;
+    margin-top: 20rpx;
+}
+
+.allSubjects {
+    margin-top: 100rpx;
+}
+
+.allTopic{
+    min-height: 150px;
+}
+
+.classname {
+    height: 100rpx;
+    background: #fff;
+    border-radius: 15rpx 5rpx 15rpx 15rpx;
+    box-shadow: 0px 0px 10px #ddd;
+}
+
+.classname view {
+    display: inline-block;
+    padding: 10rpx 20rpx;
+    font-size: 30rpx;
+    color: #fff;
+    background: #1e88e5;
+    border-radius: 7rpx;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20rpx;
+}
+
+.list {
+    width: 95%;
+    min-height: 250rpx;
+    margin: 30rpx auto;
+}
+
+.attr {
+    width: 15%;
+    height: 130rpx;
+    float: left;
+}
+
+.attr view {
+    width: 70%;
+    background-image: url('https://api.jules.xin/images/attr.png');
+    text-indent: -99999em;
+    overflow: hidden;
+    background-size: 100% 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0px 0px 10px #ddd;
+}
+
+.attrstrue view {
+    width: 70%;
+    background-image: url('https://api.jules.xin/images/attrtrue.png');
+    text-indent: -99999em;
+    overflow: hidden;
+    background-size: 100% 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0px 0px 10px #ddd;
+}
+
+.lists {
+    width: 85%;
+    /* height: 240rpx; */
+    float: left;
+    background-image: url('https://api.jules.xin/images/lists.png');
+    background-size: 100% 100%;
+    border-radius: 15rpx 5rpx 15rpx 15rpx;
+    box-shadow: 0px 0px 10px #ddd;
+    color: #000;
+    text-align: left;
+    line-height: 10rpx;
+    margin: 0;
+}
+
+.tlisttrue {
+    background-image: url('https://api.jules.xin/images/liststrue.png');
+}
+
+.tlisttrue .list-left {
+    display: block;
+    height: 90rpx;
+    line-height: 90rpx;
+    width: 100%;
+}
+
+.tlisttrue .list-left text {
+    display: inline-block;
+    font-size: 26rpx;
+    color: #fff;
+    background: #dedede;
+    border-radius: 7rpx;
+    width: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 50rpx;
+    line-height: 50rpx;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 10rpx;
+}
+
+.tlist .list-left {
+    display: block;
+    height: 90rpx;
+    line-height: 90rpx;
+    width: 100%;
+}
+
+.tlist .list-left text {
+    display: inline-block;
+    font-size: 26rpx;
+    color: #fff;
+    background: #1e88e5;
+    border-radius: 7rpx;
+    width: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 50rpx;
+    line-height: 50rpx;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 10rpx;
+}
+
+.littleTitle {
+    display: inline-block;
+    min-height: 40rpx;
+     line-height: 35rpx; 
+}
+
+.littleTitle text {
+    display: block;
+    font-size: 22rpx;
+}
+
+.modal-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.5;
+    overflow: hidden;
+    z-index: 900;
+    color: #fff;
+    text-align: center;
+}
+
+.modal-dialog {
+    width: 90%;
+    position: fixed;
+    top: 6%;
+    left: 5%;
+    z-index: 999;
+    background: #fff;
+    border-radius: 10rpx;
+    /* min-height: 900rpx; */
+}
+
+.modal-title {
+    font-size: 50rpx;
+    height: 70rpx;
+    color: #1f88e4;
+    text-align: center;
+}
+
+.modal-content {
+    padding: 10rpx 12rpx;
+}
+
+.modal-header {
+    width: 100%;
+    height: 50rpx;
+    position: relative;
+}
+
+.btn-cancel {
+    color: #fff;
+    position: absolute;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: 100rpx solid #1d89e4;
+    border-left: 100rpx solid transparent;
+}
+
+.btn-cancel image {
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    top: -90rpx;
+    right: 8rpx;
+}
+
+.modal-content {
+    height: 800rpx;
+}
+
+.modal-footer {
+    width: 100%;
+    height: 70rpx;
+    margin: 0 auto;
+    display: flex;
+}
+
+.modal-footer image {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.modal-footer .refuse {
+    flex: 1;
+    text-align: left;
+}
+
+.modal-footer .freeze {
+    flex: 1;
+}
+
+.modal-footer .freeze text {
+    background: #1d89e4;
+    color: white;
+    font-size: 26rpx;
+    text-align: center;
+}
+
+.modal-footer .ok {
+    flex: 1;
+    text-align: right;
+}
+
+.modal-footer .changeStatus {
+    flex: 1;
+    text-align: center;
+    font-size: 25rpx;
+}
+
+.modal-footer .changeStatus text {
+    display: inline-block;
+    background: #1d89e4;
+    color: white;
+    width: 60%;
+    height: 60rpx;
+    line-height: 60rpx;
+    border-radius: 10rpx;
+    margin-top: 5rpx;
+    /* visibility: hidden; */
+}
+
+.modal-footer .freeze {
+    text-align: center;
+    flex: 1;
+    font-size: 28rpx;
+}
+
+.modal-footer .freeze text {
+    display: inline-block;
+    background: #1d89e4;
+    color: white;
+    /* width: 60%; */
+    height: 60rpx;
+    line-height: 60rpx;
+    border-radius: 10rpx;
+    margin-top: 5rpx;
+    padding: 0 10rpx;
+}
+
+.swiper-tab {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 60rpx;
+    box-shadow: 0px 0px 8px #ddd;
+}
+
+.swiper-tab-listchs {
+    font-size: 38rpx;
+    display: inline-block;
+    width: 42%;
+    color: #595959;
+}
+
+.swiper-tab-listeng {
+    font-size: 25rpx;
+    display: inline-block;
+    width: 43%;
+    color: #595959;
+}
+
+.on {
+    color: #1e88e5;
+}
+
+.swiper-box {
+    display: block;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.student {
+    width: 90%;
+    height: 100rpx;
+    margin: 15rpx auto;
+    box-shadow: 0px 0px 8px #ddd;
+    border-radius: 8rpx;
+    line-height: 100rpx;
+    font-size: 28rpx;
+    text-indent: 20rpx;
+}
+
+.student .stu {
+    width: 65%;
+    height: 100rpx;
+    float: left;
+}
+
+.student .oper {
+    width: 35%;
+    height: 100rpx;
+    float: left;
+}
+
+.student .oper .resetchs {
+    width: 80rpx;
+    height: 80rpx;
+    margin-top: 10rpx;
+    border-radius: 10rpx;
+    line-height: 40rpx;
+    text-indent: 0;
+    position: absolute;
+    right: 40rpx;
+    font-size: 24rpx;
+    padding: 0 10rpx;
+    background: #ff8c1a;
+    color: white;
+}
+
+.student .oper .reseteng {
+    width: 120rpx;
+    height: 80rpx;
+    margin-top: 10rpx;
+    border-radius: 10rpx;
+    line-height: 24rpx;
+    text-indent: 0;
+    position: absolute;
+    right: 40rpx;
+    font-size: 24rpx;
+    padding: 14rpx 8rpx;
+    background: #ff8c1a;
+    color: white;
+}
+
+.student .Attroper {
+    width: 160rpx;
+    height: 100rpx;
+    display: flex;
+    text-align: center;
+    float: right;
+}
+
+.changeWorkchs {
+    width: 80rpx;
+    height: 80rpx;
+    margin-top: 10rpx;
+    border-radius: 10rpx;
+    line-height: 80rpx;
+    text-indent: 0;
+    position: absolute;
+    right: 40rpx;
+    font-size: 24rpx;
+    padding: 0 10rpx;
+}
+
+.changeWorkeng {
+    width: 120rpx;
+    height: 80rpx;
+    margin-top: 10rpx;
+    border-radius: 10rpx;
+    line-height: 80rpx;
+    text-indent: 0;
+    position: absolute;
+    right: 40rpx;
+    font-size: 22rpx;
+    padding: 0 5rpx;
+}
+
+.childtrue {
+    background: #1d89e4;
+    color: #fff;
+}
+
+.childfalse {
+    background: #cecece;
+    color: #000;
+}
+
+.completed {
+    width: 100%;
+    height: 70rpx;
+    text-align: center;
+    position: absolute;
+    bottom: 100rpx;
+}
+
+.completed image {
+    width: 40%;
+    height: 70rpx;
+}
+
+.start {
+    width: 100%;
+    height: 70rpx;
+    text-align: center;
+    position: absolute;
+    bottom: 100rpx;
+}
+
+.start image {
+    width: 40%;
+    height: 70rpx;
+}
+
+.manualChangePage {
+    width: 100%;
+    height: 200rpx;
+    position: fixed;
+    top: 400rpx;
+    z-index: 1121212121;
+    display: flex;
+}
+
+.manualChangePage .left {
+    width: 50%;
+    flex: 1;
+    text-align: left;
+}
+
+.manualChangePage image {
+    width: 100rpx;
+    height: 200rpx;
+}
+
+.manualChangePage .right {
+    width: 50%;
+    flex: 1;
+    text-align: right;
+}
+
+/*
+    重置对话框
+    */
+
+.modal-Change-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.5;
+    overflow: hidden;
+    z-index: 9000;
+    color: #fff;
+}
+
+.modal-Change-dialog {
+    width: 80%;
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    left: 10%;
+    z-index: 9999;
+    background: #f9f9f9;
+    margin: -180rpx 0;
+    border-radius: 36rpx;
+    border: 1px solid #444;
+}
+
+.modal-Change-title {
+    padding: 30rpx 0;
+    font-size: 46rpx;
+    font-weight: 800;
+    color: #1d89e4;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.modal-Change-content {
+    padding: 50rpx 32rpx;
+    font-size: 32rpx;
+}
+
+.modal-Change-footer {
+    display: flex;
+    flex-direction: row;
+    height: 86rpx;
+    border-top: 1px solid #dedede;
+    font-size: 34rpx;
+    line-height: 86rpx;
+}
+
+.Change-btn-cancel {
+    width: 50%;
+    color: #666;
+    text-align: center;
+    border-right: 1px solid #dedede;
+}
+
+.Change-btn-confirm {
+    width: 50%;
+    color: #fff;
+    text-align: center;
+    background: #74cf9f;
+}
+
+.go {
+    width: 80rpx;
+    height: 50rpx;
+    z-index: 9999999999999999999;
+    position: absolute;
+    right: 40rpx;
+    top: 30rpx;
+}
+
+button::after {
+    border: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+.confirmBtn{
+    display: inline-block;
+    width: 60%;
+    height: 70rpx;
+    background: #1e88e5;
+    color: #fff;
+}
+
+button[disabled][type="default"], wx-button[disabled]:not([type]) {
+    color:#fff;
+    background-color:gray;
+}

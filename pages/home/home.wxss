@@ -1,0 +1,123 @@
+/**index.wxss**/
+.page {
+    background-color: #f6f6f6;
+    height: auto;
+    z-index: 999;
+}
+
+/*搜索框  */
+.searchBox{
+    position: absolute;
+    width: 100%;
+    height: 100rpx;
+    background: transparent;
+    top: 0;
+    border: 0;
+}
+
+.searchBox .seachText{
+    width: 70%;
+    height: 60rpx;
+    z-index: 1111111;
+    background: #fff;
+    margin: 20rpx auto;
+    border-radius: 50rpx;
+    line-height: 60rpx;
+}
+
+.searchBox .seachText input{
+    width: 60%;
+    height: 60rpx;
+    font-size: 25rpx;
+    padding-left: 30rpx;
+    line-height: 60rpx;
+}
+
+.searchBox .searchBtn{
+    width: 100rpx;
+    height: 60rpx;
+}
+
+.searchBox .searchBtn image{
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    right: 130rpx;
+    top: 30rpx;
+}
+
+/*轮播图  */
+.swiper {
+    height: 350rpx;
+    width: 100%;
+}
+
+.swiper image {
+    height: 100%;
+    width: 100%;
+}
+
+.mp4{
+  width: 100%;
+  height:398rpx;
+  background-image: url('https://api.jules.xin/images/3nHkd.png');
+  background-size: 100% 100%;
+  margin-top: 30rpx;
+  text-align: center
+}
+.mp4 #myVideo{
+  width: 80%;
+  height: 290rpx; 
+  margin: 85rpx auto;
+}
+.sfcon {
+    width: 100%;
+    min-height: 350rpx;
+    text-align: center;
+    padding: 20rpx 0;
+    background: #dddddd; 
+}
+
+.sfcon image {
+    width: 80%;
+    height: 100rpx;
+}
+
+.sfcon .s-cont{
+    min-height: 250rpx;
+    font-size: 30rpx;
+}
+
+.sfcon .s-cont .st-title{
+    display: inline-block;
+    background: #1D89E4;
+    padding: 10rpx 20rpx;
+    border-radius: 10rpx;
+    color: white;
+    letter-spacing: 5rpx;
+    font-family: 'TongXin'
+}
+
+.sfcon .s-cont .st-font{
+    display: block;
+    color:#595959;
+    font-size: 28rpx;
+    letter-spacing: 5rpx;
+    font-family: 'TongXin'
+    
+}
+.joinImgschs {
+    width: 85%;
+    height: 70rpx;
+    background-image: url('https://api.jules.xin/images/3WeW4.png');
+    background-size: 100% 100%;
+    margin: 10rpx auto;
+}
+.joinImgseng {
+    width: 85%;
+    height: 70rpx;
+    background-image: url('https://api.jules.xin/images/ct.png');
+    background-size: 100% 100%;
+    margin: 10rpx auto;
+}
+

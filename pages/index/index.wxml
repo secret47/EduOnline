@@ -1,0 +1,27 @@
+<view class="pages">
+    <view class='userLogin'>
+        <view class='logo'>
+            <!--logo & welcome -->
+            <image src="/images/logo.png"></image>
+        </view>
+        <view class='loginForm'>
+            <view class='username'>
+                <input type='text' placeholder='{{resDataVar.username}}' placeholder-style='color:white' bindinput='usernameInput' value="{{thisuser}}"></input>
+            </view>
+            <view class='password'>
+                <input type='password' placeholder='{{resDataVar.password}}' placeholder-style='color:white' bindinput='passwordInput' value='{{thispsw}}'></input>
+            </view>
+            <view class='language'>
+                <picker class="picker" bindchange="changeLan" value="{{Index}}"  range="{{language}}">
+                    <view class='lang'>
+                    {{language[Index]}}
+                    </view>
+                </picker>
+            </view>
+            <view class='login'>
+                 <!-- <image src="/images/continue.png" animation="{{animation}}"></image>  -->
+                 <button  bindtap='login' class='loginBtn'>登录</button> 
+            </view>
+        </view>
+    </view>
+</view>

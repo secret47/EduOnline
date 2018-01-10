@@ -1,0 +1,534 @@
+/* pages/lesson/lesson.wxss */
+
+.pages {
+    width: 100%;
+    background-color: #f6f6f6;
+    height: auto;
+    overflow-x: hidden;
+    z-index: 999;
+}
+
+.header {
+    height: 300rpx;
+    width: 100%;
+    background: #fff;
+    text-align: center;
+}
+
+.header image {
+    width: 90%;
+    height: 240rpx;
+    border-radius: 20rpx;
+    z-index: 999;
+    margin: 30rpx auto;
+}
+
+.lessons_tab {
+    min-height: 760rpx;
+}
+
+.lessons_tab .tab_nav {
+    width: 300rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    /* background: #fff; */
+    margin: 40rpx 0;
+}
+
+.lessons_tab .tab_nav .classify {
+    width: 150rpx;
+    height: 30rpx;
+    border-left: 60rpx solid #c7c7c7;
+    margin: 25rpx 0;
+    padding-left: 10rpx;
+    font-size: 34rpx;
+    font-weight: 800;
+    color: #5f5f5f;
+}
+
+.lessons_tab .allClassify {
+    /* width: 90%; */
+    min-height: 600rpx;
+    /* padding:20rpx; */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.lessons_tab .allClassify .all {
+    text-align: center;
+    margin: 0 auto;
+    background: #fff;
+}
+
+.lessons_tab .allClassify .classifyBox {
+    width: 296rpx;
+    height: 250rpx;
+    background-color: #000;
+    box-shadow: 5px 5px 5px #ddd;
+    float: left;
+    margin: 10rpx;
+    position: relative;
+    border: 0;
+    background-size: 100% 100%;
+    padding: 0;
+}
+
+.box1chs {
+    background-image: url(https://api.jules.xin/images/lessonsCnter.png);
+}
+
+.box2chs {
+    background-image: url(https://api.jules.xin/images/demoLesson.png);
+}
+
+.box3chs {
+    background-image: url(https://api.jules.xin/images/manager.png);
+}
+
+.box1eng {
+    background-image: url('https://api.jules.xin/images/eng/lessoneng.png');
+}
+
+.box2eng {
+    background-image: url(https://api.jules.xin/images/eng/demoLessoneng.png);
+}
+
+.box3eng {
+    background-image: url(https://api.jules.xin/images/eng/studentMa.png);
+}
+
+.lessons_tab .allClassify .classifyBox .boxText {
+    width: 100%;
+    height: 45rpx;
+    position: absolute;
+    bottom: 0;
+    font-size: 22rpx;
+    text-align: center;
+    color: #4f4f4f;
+    line-height: 45rpx;
+    font-weight: 700;
+    /* letter-spacing: 1rpx */
+}
+
+.center-line {
+    display: block;
+    height: 25rpx;
+    width: 100%;
+    background: #f3f3f3;
+}
+
+.all_top {
+    height: 280rpx;
+    width: 640rpx;
+    margin: 0 auto;
+}
+
+.all_bot {
+    width: 300rpx;
+    height: 280rpx;
+    margin: 10rpx auto;
+}
+
+.mask {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+}
+
+.modal-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.5;
+    overflow: hidden;
+    z-index: 9000;
+    color: #fff;
+    text-align: center;
+}
+
+.modal-dialog {
+    width: 90%;
+    position: fixed;
+    top: 6%;
+    left: 5%;
+    z-index: 9999;
+    background: #fff;
+    border-radius: 10rpx;
+    /* min-height: 900rpx; */
+}
+
+.modal-title {
+    font-size: 50rpx;
+    height: 40px;
+    color: #1f88e4;
+    text-align: center;
+}
+
+.modal-content {
+    padding: 10rpx 12rpx;
+}
+
+.modal-header {
+    width: 100%;
+    height: 30px;
+    position: relative;
+}
+
+.modal-footer {
+    width: 100%;
+    height: 70rpx;
+    margin: 0 auto;
+    display: flex;
+}
+
+.modal-footer image {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.modal-footer .refuse {
+    flex: 1;
+    text-align: left;
+}
+
+.modal-footer .freeze {
+    flex: 1;
+    text-align: center;
+}
+
+.modal-footer .freeze text {
+    background: #1d89e4;
+    color: white;
+    font-size: 24rpx;
+    text-align: center;
+    display: inline-block;
+    padding: 10rpx 20rpx;
+    border-radius: 10rpx;
+}
+
+.modal-footer .ok {
+    flex: 1;
+    text-align: right;
+}
+
+.btn-cancel {
+    color: #fff;
+    position: absolute;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: 100rpx solid #1d89e4;
+    border-left: 100rpx solid transparent;
+}
+
+.btn-cancel image {
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    top: -90rpx;
+    right: 8rpx;
+}
+
+.student {
+    width: 90%;
+    height: 100rpx;
+    margin: 15rpx auto;
+    box-shadow: 0px 0px 8px #ddd;
+    border-radius: 8rpx;
+    line-height: 100rpx;
+    font-size: 28rpx;
+    text-indent: 20rpx;
+}
+
+.student .stu {
+    width: 65%;
+    height: 100rpx;
+    float: left;
+}
+
+.student .oper {
+    width: 160rpx;
+    height: 100rpx;
+    display: flex;
+    text-align: center;
+}
+
+.student .oper view .changePswchs {
+    width: 80rpx;
+    height: 80rpx;
+    margin-top: 10rpx;
+    border-radius: 10rpx;
+    line-height: 40rpx;
+    text-indent: 0;
+    position: absolute;
+    right: 40rpx;
+    font-size: 24rpx;
+    padding: 0 10rpx;
+    background: #ff8c1a;
+    color: white;
+}
+
+.student .oper view .changePsweng {
+    width: 100rpx;
+    height: 80rpx;
+    margin-top: 10rpx;
+    border-radius: 10rpx;
+    line-height: 40rpx;
+    text-indent: 0;
+    position: absolute;
+    right: 40rpx;
+    font-size: 20rpx;
+    padding: 0 5rpx;
+    background: #ff8c1a;
+    color: white;
+}
+
+/*
+    重置对话框
+    */
+
+.modal-Change-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.5;
+    overflow: hidden;
+    z-index: 9000;
+    color: #fff;
+}
+
+.modal-Change-dialog {
+    width: 80%;
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    left: 10%;
+    z-index: 9999;
+    background: #f9f9f9;
+    margin: -180rpx 0;
+    border-radius: 36rpx;
+    border: 1px solid #444;
+}
+
+.modal-Change-title {
+    padding: 30rpx 0;
+    font-size: 46rpx;
+    font-weight: 800;
+    color: #1d89e4;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.modal-Change-content {
+    padding: 50rpx 32rpx;
+    font-size: 32rpx;
+}
+
+.modal-Change-footer {
+    display: flex;
+    flex-direction: row;
+    height: 86rpx;
+    border-top: 1px solid #dedede;
+    font-size: 34rpx;
+    line-height: 86rpx;
+}
+
+.Change-btn-cancel {
+    width: 50%;
+    color: #666;
+    text-align: center;
+    border-right: 1px solid #dedede;
+}
+
+.Change-btn-confirm {
+    width: 50%;
+    color: #fff;
+    text-align: center;
+    background: #74cf9f;
+}
+
+button::after {
+    border: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+/*
+    通过测试
+    */
+
+.modal-pass-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.5;
+    overflow: hidden;
+    z-index: 9000;
+    color: #fff;
+}
+
+.modal-pass-dialog {
+    width: 80%;
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    left: 10%;
+    z-index: 9999;
+    background: #f9f9f9;
+    margin: -180rpx 0;
+    border-radius: 15rpx;
+}
+
+.modal-pass-title {
+    padding: 30rpx 0;
+    font-size: 46rpx;
+    font-weight: 800;
+    color: #1d89e4;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.modal-pass-content {
+    padding: 50rpx 32rpx;
+    font-size: 32rpx;
+    text-align: center;
+    font-weight: 600;
+}
+
+.modal-pass-content text {
+    width: 100;
+    height: 40rpx;
+    line-height: 40rpx;
+    display: block;
+    color: #0082db;
+}
+
+.modal-pass-footer {
+    height: 86rpx;
+    border-top: 1px solid #dedede;
+    font-size: 34rpx;
+    line-height: 86rpx;
+}
+
+.Change-pass-confirm {
+    width: 100%;
+    height: 86rpx;
+    color: #fff;
+    text-align: center;
+}
+
+.Change-pass-confirm  image {
+    height: 70rpx;
+    width: 70rpx;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/*
+    未通过测试
+  */
+
+.modal-nopass-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.5;
+    overflow: hidden;
+    z-index: 9000;
+    color: #fff;
+}
+
+.modal-nopass-dialog {
+    width: 80%;
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    left: 10%;
+    z-index: 9999;
+    background: #f9f9f9;
+    margin: -180rpx 0;
+    border-radius: 15rpx;
+}
+
+.modal-nopass-title {
+    font-size: 46rpx;
+    color: red;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    height: 110rpx;
+    line-height: 110rpx;
+}
+
+.modal-nopass-title image {
+    height: 70rpx;
+    width: 70rpx;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.modal-nopass-content {
+    padding: 50rpx 32rpx;
+    font-size: 32rpx;
+    text-align: center;
+    font-weight: 600;
+}
+
+.modal-nopass-content text {
+    width: 100;
+    height: 40rpx;
+    line-height: 40rpx;
+    display: block;
+    color: #0082db;
+}
+
+.modal-nopass-footer {
+    height: 86rpx;
+    font-size: 34rpx;
+    line-height: 86rpx;
+}
+
+.Change-nopass-confirm {
+    width: 100%;
+    height: 86rpx;
+    color: #fff;
+    text-align: center;
+}
+
+.Change-nopass-confirm  image {
+    height: 70rpx;
+    width: 70rpx;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.boxfalse {
+}
+
+.boxtrue {
+    -webkit-filter: grayscale(70%);
+    -moz-filter: grayscale(70%);
+    -ms-filter: grayscale(70%);
+    -o-filter: grayscale(70%);
+    filter: grayscale(70%);
+    filter: gray;
+}

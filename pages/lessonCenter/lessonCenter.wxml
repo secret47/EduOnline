@@ -1,0 +1,133 @@
+<!--pages/lesson/lesson.wxml-->
+<view class='pages box{{box1.disabled}}'>
+    <view class='page__hd header'>
+        <image src="{{headUrl}}"></image>
+    </view>
+    <view class="page__bd page__bd_spacing lessons_tab">
+         <view class='tab_nav'>
+            <!-- <text class='classify'>{{resDataVar.lessonCenter}}</text> -->
+        </view> 
+        <view class='allClassify'>
+            <view class='all'>
+                <view class='all_top'>
+                    <button bindtap='openDetail' class='{{box1.css}}{{languages}} box{{box1.disabled}}' data-id="{{box1.id}}" disabled="{{box1.disabled}}">
+                        <view class='boxText'>
+                            <text>{{curLess}}/{{allLess}} {{resDataVar.lessonFinished}}</text>
+                        </view>
+                    </button>
+                    <button bindtap='openDetail' class='{{box2.css}}{{languages}} box{{box2.disabled}}' data-id="{{box2.id}}" disabled="{{box2.disabled}}">
+                        <view class='boxText'>
+                            <text></text>
+                        </view>
+                    </button>
+                </view>
+                <text class='center-line'></text>
+                <view class='all_bot'>
+                    <button bindtap='openDetail' class='{{box3.css}}{{languages}} box{{box3.disabled}}' data-id="{{box3.id}}" disabled="{{box3.disabled}}">
+                        <view class='boxText'>
+                            <text>{{resDataVar.ChangePassword}}</text>
+                        </view>
+                    </button>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<!--弹窗  -->
+<view class="modal-mask" bindtap="hideModal" wx:if="{{showTheModal}}"></view>
+<view class="modal-dialog" wx:if="{{showTheModal}}" style="height:{{winHeight - 70}}px">
+    <view class="modal-header">
+        <view class="btn-cancel" bindtap="onCancel" data-status="cancel">
+            <image src="/images/cancel.png"></image>
+        </view>
+        <!-- <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view> -->
+    </view>
+    <view class="modal-title">
+        <view class='swiper-tab'>
+            <view class='ListTitle'>{{resDataVar.studentList}}</view>
+        </view>
+    </view>
+    <view class="modal-content" style="height:{{winHeight - 140}}px">
+        <scroll-view scroll-y="ture" style="height:{{winHeight - 190}}px">
+            <view class='student' wx:for="{{childrenList}}">
+                <!-- 学生列表  -->
+                <view class='stu'>
+                    <!--学生名称和头像，如果有的话  -->
+                    {{item.username}}
+                </view>
+                <view class='oper'>
+                    <!--操作  -->
+                    <view>
+                        <button class='changePsw{{languages}}' bindtap='changePsw' data-name="{{item.username}}">{{resDataVar.resetPasswrod}}</button>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="modal-footer">
+            <view class='refuse'>
+                <!-- <image src='../../images/refuse.png'></image> -->
+            </view>
+            <view class='freeze'>
+                <image src='../../images/okSub.png' bindtap='studentOk'></image>
+            
+            </view>
+            <view class='ok'>
+            </view>
+        </view>
+
+    </view>
+
+</view>
+
+<!--修改密码弹窗-->
+<view class="modal-Change-mask" catchtouchmove="preventTouchMove" wx:if="{{showChangeModal}}"></view>
+<view class="modal-Change-dialog" wx:if="{{showChangeModal}}">
+    <view class="modal-Change-title">{{resDataVar.resetPasswrod}}</view>
+    <view class="modal-Change-content">
+        <text>{{resDataVar.resetpsw}}</text>
+    </view>
+    <view class="modal-Change-footer">
+        <view class="Change-btn-cancel" bindtap="ChangeonCancel" data-status="cancel">{{resDataVar.cancel}}</view>
+        <view class="Change-btn-confirm" bindtap="ChangeonConfirm" data-status="confirm">{{resDataVar.confirm}}</view>
+    </view>
+</view>
+
+<!-- 未通过测试 -->
+<view class="modal-nopass-mask" catchtouchmove="preventTouchMove" wx:if="{{shownopassModal}}"></view>
+<view class="modal-nopass-dialog" wx:if="{{shownopassModal}}">
+    <view class="modal-header">
+        <view class="btn-cancel" bindtap="onCancel" data-status="cancel">
+            <image src="/images/cancel.png"></image>
+        </view>
+    </view>
+    <view class="modal-nopass-title">
+        <image src='../../images/notice.png'></image> 提示
+    </view>
+    <view class="modal-nopass-content">
+        <text>请先通过教师资格测试</text>
+    </view>
+    <!-- <view class="modal-nopass-footer">
+        <view class="Change-nopass-confirm" data-status="confirm">
+            <image src='../../images/okreg.png' bindtap="nopassonConfirm"></image>
+        </view>
+    </view> -->
+</view>
+<!-- 已通过测试，只弹出一次  -->
+<view class="modal-pass-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showpassModal}}"></view>
+<view class="modal-pass-dialog" wx:if="{{showpassModal}}">
+    <view class="modal-header">
+        <view class="btn-cancel" bindtap="onCancel" data-status="cancel">
+            <image src="/images/cancel.png"></image>
+        </view>
+    </view>
+    <view class="modal-pass-content">
+        <text>恭喜你已通过测试</text>
+        <text>可以进行备课了哦！</text>
+    </view>
+    <view class="modal-pass-footer">
+        <view class="Change-pass-confirm" data-status="confirm">
+            <image src='../../images/okSub.png' bindtap="passonConfirm"></image>
+        </view>
+    </view>
+</view>

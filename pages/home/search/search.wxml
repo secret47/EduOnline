@@ -1,0 +1,15 @@
+<view class='page'>
+    <view class="searchBox">
+        <view class='seachText'>
+            <input class="search-input" placeholder="课程搜索" value="{{inputValue}}" confirm-type="search" auto-focus='true' bindinput='bindInput'/>
+        </view>
+        <view class='searchBtn' bindtap='searchBtn'>
+            <image src='/images/search.png'></image>
+        </view>
+    </view>
+    <view class='historyData' wx:if="{{searchLogShowed}}">
+        <view class="search-log" wx:for-item="searchLog" wx:for="{{searchLogList}}" wx:key="searchLogListId" bindtap="searchDataByLog" data-log="{{searchLog}}">
+            {{searchLog}}
+        </view>
+    </view>
+</view>

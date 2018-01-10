@@ -1,0 +1,43 @@
+<!--pages/teacherTest/teacherTest.wxml-->
+<!-- 老师测试页面  -->
+<view class='pages'>
+    <radio-group class="radio-group" wx:for="{{studies}}" bindchange="radioChange" data-id="{{item.id}}">
+        <view class='questions{{item.id}} questions'>
+            <view class='title'>{{item.id+1}}.{{item.name}}</view>
+            <view class='content'>
+                <label class="radio" wx:for='{{item.answer}}'>
+                    <radio value="{{item.name}}" checked="{{item.checked}}" disabled="{{item.disabled}}" /> {{item.name}} .{{item.value}}
+                </label>
+            </view>
+        </view>
+        <view class='next' wx:if="{{item.id < 6}}">
+            <image src='../../images/next.png' bindtap='nextQues'></image>
+        </view>
+    </radio-group>
+    <view class='completed'>
+        <image src='../../images/submit.png' bindtap='submitAnswer'></image>
+    </view>
+
+</view>
+
+<!-- bindtap="hideModal"   取消方法  -->
+
+<view class="modal-mask" catchtouchmove="preventTouchMove" wx:if="{{showTheModal}}">
+    <view class='modal-dialog'>
+        <image src='../../images/con_ok.png' class='ok' bindtap='testOK'></image>
+    </view>
+</view>
+
+
+<view class="modal-Test-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showTestModal}}"></view>
+<view class="modal-Test-dialog" wx:if="{{showTestModal}}">
+    <view class="modal-Test-title">错误提示</view>
+    <view class="modal-Test-content">
+        老师,
+        你的第{{faultAns}}题错了
+    </view>
+    <view class="modal-Test-footer">
+        <view class="Test-btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+        <view class="Test-btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+    </view>
+</view>

@@ -1,0 +1,25 @@
+<!--pages/study/study.wxml-->
+<view class='page'>
+    <view class='header'>
+        <image src='{{resDataVar.videoTitle}}'></image>
+    </view>
+
+    <view class='teachingVideos'>
+        <view>
+            <video id="vid_player" src='{{video_url}}' bindended='videoEnds' bindplay='videoPlays' autoplay='{{autoplay}}'></video>
+        </view>
+        <view class='btn'>
+            <button class='title this{{item.checked}}' disabled='{{item.disabled}}'  bindtap='changeVideo' data-id="{{item.id}}" wx:for="{{videos}}">{{resDataVar.video}}{{index+1}}</button>
+        </view>
+    </view>
+
+    <view class='start'>
+        <view class='testing'>
+            <image src='{{resDataVar.test}}'></image>
+        </view>
+        <view class='startBtn {{isEnd}}'>
+            <!-- <image src='{{resDataVar.startTest}}' bindtap='startTest'></image> -->
+            <button class='this{{language}} startbtn' bindtap='startTest' disabled='{{btndis}}'>开始</button>
+        </view>
+    </view>
+</view>

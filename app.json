@@ -1,0 +1,50 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/study/study",
+        "pages/home/home",
+        "pages/mine/mine",
+        "pages/lessonCenter/lessonCenter",
+        "pages/lessons/lessons",
+        "pages/lessonsDetail/lessonsDetail",
+        "pages/subjectDetail/subjectDetail",
+        "pages/home/search/search",
+        "pages/teacherTest/teacherTest"
+        
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#000",
+        "navigationBarTitleText": "School of Fish",
+        "navigationBarTextStyle": "#fff"
+    },
+    "tabBar": {
+        "backgroundColor": "#21292c",
+        "borderStyle": "black",
+        "color": "#fff",
+        "selectedColor":"#1e88e5",
+        "list": [
+            {
+                "selectedIconPath": "images/homeSelected.png",
+                "iconPath": "images/home.png",
+                "pagePath": "pages/home/home",
+                "text":""
+            },
+            {
+                "selectedIconPath": "images/studySelected.png",
+                "iconPath": "images/study.png",
+                "pagePath": "pages/study/study"
+            },
+            {
+                "selectedIconPath": "images/lessonSelected.png",
+                "iconPath": "images/lesson.png",
+                "pagePath": "pages/lessonCenter/lessonCenter"
+            },
+            {
+                "selectedIconPath": "images/mineSelected.png",
+                "iconPath": "images/mine.png",
+                "pagePath": "pages/mine/mine"
+            }
+        ]
+    }
+}

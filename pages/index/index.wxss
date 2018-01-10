@@ -1,0 +1,74 @@
+
+.pages {
+    width: 100%;
+    display: block;
+    height: 100%;
+    background-image: url('https://api.jules.xin/images/3jg9s.png');
+}
+
+.userLogin {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+.userLogin .logo{
+    width: 100%;
+    height: 350rpx;
+}
+.userLogin .logo image{
+    width: 100%;
+    height: 100%;
+}
+.userLogin .loginForm{
+    width: 100%;
+    height: 400rpx;
+    margin-top: 100rpx;
+}
+.userLogin .loginForm .username,.password{
+    width: 300rpx;
+    height: 70rpx;
+    background: #1D89E4;
+    margin: 10rpx auto;
+    border-radius: 10rpx;
+}
+.userLogin .loginForm input{
+    height: 70rpx;
+    color: white;
+}
+.userLogin .login{
+    width: 430rpx;
+    height: 75rpx;
+    margin: 50rpx auto; 
+    background: rgba(0, 0, 0, 0.3);
+    border:1px solid #185E50;   
+    border-radius: 10rpx;
+    box-shadow: 3px 0px 3px 0px #185E50;
+}
+
+.userLogin .loginBtn{
+    width: 400rpx;
+    height: 75rpx;
+    margin: 0 auto;
+    background: transparent;
+    background-image: url('https://api.jules.xin/images/continue.png');
+    background-size: 100% 100%;
+    background-position: center;
+    text-indent:-99999em;
+    overflow:hidden;
+    padding: 10px;
+    border: 0;
+}
+
+.changeLang{
+    height: 100rpx;
+}
+.lang{
+    color: white;
+}
+.language{
+    height: 70rpx;
+}

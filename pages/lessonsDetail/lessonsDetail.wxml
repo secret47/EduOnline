@@ -1,0 +1,114 @@
+<view class="page" style='overflow-y:{{isScroll}}'>
+    <view class='lessonsHead' style="background-image: url({{imgUrl}});">
+        <!-- 头部  -->
+        <view class='lessonsTitle'>
+            <image src='{{headUrl}}'></image>
+        </view>
+    </view>
+    <view class='allSubjects'>
+        <view wx:for="{{AllTopic}}" wx:for-index="index" wx:key="{{AllTopic}}" class='allTopic'>
+            <view class="classname">
+                <view>{{item.name}}</view>
+            </view>
+            <view class="box">
+                <view class="list" wx:for="{{item.lessons}}">
+                    <view class='attr attrs{{item.completed}}'>
+                        <view bindtap='openAttr' data-name="{{item.lesson}}">出勤</view>
+                    </view>
+                    <button class='lists tlist{{item.css}}' bindtap='openLesson' data-lesson='{{item.lesson}}' data-name="{{item.name}}" wx:key="{{item.lessons}}" disabled="{{item.completed}}" data-des='{{item.description}}'>
+                        <view class="list-left">
+                            <text>{{item.term_name}} : {{item.name}}</text>
+                        </view>
+                        <view class='littleTitle'>
+                            <text  wx:for="{{item.description}}">{{item.title}}</text>
+                        </view>
+                        <image src='../../images/go.png' class='go' wx:if="{{item.isNew}}"></image>
+                    </button>
+                </view>
+            </view>
+        </view>
+    </view>    
+</view>
+<!--弹窗  -->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showTheModal}}"></view>
+<view class="modal-dialog" wx:if="{{showTheModal}}" style="height:{{winHeight - 100}}px">
+    <view class="modal-header">
+        <view class="btn-cancel" bindtap="onCancel" data-status="cancel">
+            <image src="/images/cancel.png"></image>
+        </view>
+        <!-- <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view> -->
+    </view>
+    <view class="modal-title">
+        <view class='swiper-tab'>
+            <view class="swiper-tab-list{{languages}} {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">{{resDataVar.attendanceList}}</view> 
+            <!-- | <view class="swiper-tab-list{{languages}} {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">{{resDataVar.studentList}}</view> -->
+        </view>
+    </view>
+    <view class="modal-content" style="height:{{winHeight - 170}}px">
+        <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange" style="height:{{winHeight - 170}}px">
+            <swiper-item>
+                <scroll-view scroll-y="ture" style="height:{{winHeight - 210}}px">
+                    <view class='student' wx:for="{{childrenList}}">
+                        <view class='stu'>
+                            <!--学生名称和头像，如果有的话  -->
+                            {{item.username}}
+                        </view>
+                        <view class='Attroper'>
+                            <button class="changeWork{{languages}} child{{item.checked}}" bindtap="changeChildSession" data-id="{{item.id}}">{{item.attrCon}}</button>
+                        </view>
+                    </view>
+
+                </scroll-view>
+                <view class="modal-footer">
+                    <view class='refuse'>
+                        <!--  <image src='../../images/refuse.png'></image> -->
+                    </view>
+                    <view class='changeStatus'>
+                        <!-- 修改出勤状态  -->
+                        <text bindtap='isChange' style='visibility:{{visibility}}' bindtap='changeOk'>{{resDataVar.change}}</text>
+                    </view>
+                    <view class='ok'>
+                        <!-- <image src='../../images/okSub.png' ></image> -->
+                    </view>
+                </view>
+
+            </swiper-item>
+            <!-- <swiper-item>
+                <scroll-view scroll-y="ture" style="height:{{winHeight - 210}}px">
+                    <view class='student' wx:for="{{childrenList}}">
+                        <view class='stu'>
+                            {{item.username}}
+                        </view>
+                        <view class='oper'>
+                            <button bindtap="changePsw" data-name="{{item.username}}" class='reset{{languages}}'>
+                                {{resDataVar.resetPasswrod}}
+                            </button>
+                        </view>
+                    </view>
+                </scroll-view>
+                <view class="modal-footer">
+                    <view class='refuse'>
+                    </view>
+                    <view class='freeze'>
+                        <text class='confirmBtn' bindtap='studentOk'>{{resDataVar.confirm}}</text>
+                    </view>
+                    <view class='ok'>
+                    </view>
+                </view>
+            </swiper-item> -->
+        </swiper>
+    </view>
+</view>
+
+<!--修改密码弹窗-->
+<view class="modal-Change-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showChangeModal}}"></view>
+<view class="modal-Change-dialog" wx:if="{{showChangeModal}}">
+    <view class="modal-Change-title">{{resDataVar.resetPasswrod}}</view>
+    <view class="modal-Change-content">
+        <text>{{resDataVar.resetpsw}}</text>
+    </view>
+    <view class="modal-Change-footer">
+        <view class="Change-btn-cancel" bindtap="ChangeonCancel" data-status="cancel">{{resDataVar.cancel}}</view>
+        <view class="Change-btn-confirm" bindtap="ChangeonConfirm" data-status="confirm">{{resDataVar.confirm}}</view>
+    </view>
+</view>

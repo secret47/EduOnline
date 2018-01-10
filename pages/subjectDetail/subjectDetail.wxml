@@ -1,0 +1,263 @@
+<view class='page'>
+    <swiper class="swiper" indicator-dots="{{dots}}" autoplay='{{autoplay}}' bindchange="swiperChange">
+        <block wx:for="{{arr}}" wx:key="{{arr}}">
+            <swiper-item data-id="{{item.id}}">
+                <scroll-view scroll-y="true" style="height: {{winHeight-20}}px;" scroll-top="{{scrollTop}}">
+                    <view class='top_header'>
+                        {{title}}
+                        <!-- 应该是获取课程标题？？？  -->
+                    </view>
+                    <view wx:if="{{item.part =='video'}}">
+                        <view wx:for="{{item.descriptions}}">
+                            <view wx:if="{{item.header == null}}">
+                                <view class='content'>
+                                    <view wx:for="{{item.description}}" wx:for-item="item_L1" wx:key="sa">
+                                        <text class='sequence'>{{index+1}}.</text>
+                                        <text class='con'>{{item_L1.title}}</text>
+                                        <view wx:for="{{item_L1.data}}" wx:for-item="item_L2" wx:key="sc" class='desData'>
+                                            <text class='sequence'>•</text>
+                                            <text class='con'>{{item_L2}}</text>
+                                        </view>
+                                        <button></button>
+                                    </view>
+                                </view>
+                            </view>
+                            <view wx:if="{{item.header !=null}}">
+                                <view class="header">
+                                    {{item.header}}
+                                </view>
+                                <view class='content' wx:if="{{item.description != null}}">
+                                    <view wx:for="{{item.description}}" wx:for-item="item_L1" wx:key="sa">
+                                        <text class='sequence'>{{index+1}}.</text>
+                                        <text class='con'>{{item_L1.title}}</text>
+                                        <view wx:for="{{item_L1.data}}" wx:for-item="item_L2" wx:key="sc" class='desData'>
+                                            <text class='sequence'>•</text>
+                                            <text class='con'>{{item_L2}}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <button bindtap='playVideo' class="playBtn">{{resDataVar.video}}</button>
+                        <!--开始课程弹窗-->
+                        <view class="modal-video-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showVideo}}"></view>
+                        <view class="modal-video" wx:if="{{showVideo}}">
+                            <video src='{{item.video_path}}' custom-cache="{{false}}"></video>
+                            <view class="modal-video-footer">
+                                <view class="video-btn-cancel" bindtap="VideoonCancel" data-status="cancel">{{resDataVar.close}}</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view wx:if="{{item.part =='image'}}">
+                        <!-- 图片部分  -->
+                        <view class='header'>{{resDataVar.image}}</view>
+                        <view wx:for="{{item.image_urls}}" class='images' wx:key="{{item.image_urls}}" wx:for-item="imgs">
+                            <image src="{{imgs.url}}" bindload='autoSize' data-id="{{imgs.id}}" data-partid="{{imgs.part_index}}" style='witdh:{{imgs.width}}px;height:{{imgs.height}}px'></image>
+                            <view wx:for="{{item.image_descriptions}}" class='img_des' wx:for-item="des">
+                                <!--   如果描述的index等于图片的id。说明这描述正好是这张图  -->
+                                <text wx:if="{{index == imgs.id}}">{{des}}</text>
+                            </view>
+                        </view>
+                    </view>
+
+                    <view wx:if="{{item.part == 'music'}}">
+                        <!-- 音乐部分  -->
+                        <view class='header'>{{resDataVar.music}}</view>
+                        <view wx:for="{{item.descriptions}}" class='content'>
+                            <view wx:for="{{item.description}}" wx:for-item="desc">
+                                {{desc.title}}
+                            </view>
+                        </view>
+                        <view class='audio'>
+                            <audio class="myAudio" name="JULES" author="JULES" src="{{item.music_url}}" id="myAudio" controls loop></audio>
+                        </view>
+                    </view>
+                    <view wx:if="{{item.part =='storybook'}}">
+                        <!-- 故事书部分  -->
+                        <view class='header'>{{resDataVar.storybook}}</view>
+                        <view wx:if="item.storybook_type == chapter && jsonStoryData.selectedImgIndex>=0" class='storybook'>
+                            <image src="{{item.chapter[item.selectedImgIndex].url}}" style="width:{{item.chapter[item.selectedImgIndex].newWidth}}px;height:{{item.chapter[item.selectedImgIndex].newHeight}}px"></image>
+                            <view class='story_desc'>
+                                <text wx:for="{{item.chapter[item.selectedImgIndex].description}}">{{item}}</text>
+                            </view>
+                            <view class='pageTurn'>
+                                <view class='image'>
+                                    <image bindtap='pre' src='{{resDataVar.lastPage}}' data-partid="{{item.chapter[item.selectedImgIndex].partInx}}">上一页</image>
+                                </view>
+                                <view class='storyPage'>{{storybookCur}}/{{storybookAll}}</view>
+                                <view class='image'>
+                                    <image bindtap='next' src='{{resDataVar.nextPage}}' data-partid="{{item.chapter[item.selectedImgIndex].partInx}}">下一页</image>
+                                </view>
+                            </view>
+                        </view>
+
+                    </view>
+                    <view wx:if="{{item.part =='manual'}}">
+                        <view wx:for="{{item.descriptions}}">
+                            <view wx:if="{{item.header == null}}">
+                                <view class='content'>
+                                    <view wx:for="{{item.description}}" wx:for-item="item_L1" wx:key="sa">
+                                        <text class='sequence'>{{index+1}}.</text>
+                                        <text class='con'>{{item_L1.title}}</text>
+                                        <view wx:for="{{item_L1.data}}" wx:for-item="item_L2" wx:key="sc" class='desData'>
+                                            <text class='sequence'>•</text>
+                                            <text class='con'>{{item_L2}}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view wx:if="{{item.header !=null}}">
+                                <view class="header">
+                                    {{item.header}}
+                                </view>
+                                <view class='content' wx:if="{{item.description != null}}">
+                                    <view wx:for="{{item.description}}" wx:for-item="item_L1" wx:key="sa">
+                                        <text class='sequence'>{{index+1}}.</text>
+                                        <text class='con'>{{item_L1.title}}</text>
+                                        <view wx:for="{{item_L1.data}}" wx:for-item="item_L2" wx:key="sc" class='desData'>
+                                            <text class='sequence'>•</text>
+                                            <text class='con'>{{item_L2}}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+
+                    <view wx:if="{{item.id == total_parts}}">
+                        <!-- 如果item.id为总的parts数，说明到了最后一页，这时候可以打开学生出勤的页面  -->
+                        <view wx:if="{{isStarting}}" class='completed'>
+                            <image src='../../images/ok.png' bindtap='showEndToast'></image>
+                        </view>
+                    </view>
+                    <view wx:if="{{item.id == 1}}">
+                        <view wx:if="{{!isStarting}}" class='start'>
+                            <!--
+                        开始备课按钮
+                        -->
+                            <image src='{{resDataVar.startBtn}}' bindtap='startPrepare'></image>
+                        </view>
+                    </view>
+                </scroll-view>
+
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+
+<view class='refuseCont'>
+    <button bindtap='shuaxin'>刷新</button>
+</view>
+
+<!--学生出勤弹窗  -->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showTheModal}}"></view>
+<view class="modal-dialog" wx:if="{{showTheModal}}" style="height:{{winHeight - 100}}px">
+    <view class="modal-header">
+        <view class="btn-cancel" bindtap="onCancel" data-status="cancel">
+            <image src="/images/cancel.png"></image>
+        </view>
+    </view>
+    <view class="modal-title">
+        <view class='swiper-tab'>
+            <view class="swiper-tab-list{{languages}} {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">{{resDataVar.attendanceList}}</view> 
+            <!-- |<view class="swiper-tab-list{{languages}} {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">{{resDataVar.studentList}}</view> -->
+        </view>
+    </view>
+    <view class="modal-content" style="height:{{winHeight - 170}}px">
+        <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange" style="height:{{winHeight - 170}}px">
+            <swiper-item>
+                <scroll-view scroll-y="ture" style="height:{{winHeight - 230}}px">
+                    <checkbox-group bindchange="AddChildSession">
+                        <label style="display: flex;" wx:for-items="{{childrenList}}">
+                            <view class='student'>
+                                <view class='stu'>
+                                    <!--学生名称和头像，如果有的话  -->
+                                    {{item.username}}
+                                </view>
+                                <view class='Attroper'>
+                                    <!--操作  -->
+                                    <button class="addWork{{languages}} child{{item.checked}}" bindtap="addChildSession" data-id="{{item.id}}">{{item.attrCon}}</button>
+                                </view>
+                            </view>
+
+                        </label>
+                    </checkbox-group>
+                </scroll-view>
+                <view class="modal-footer">
+                    <view class='refuse'>
+                        <!-- <image src='../../images/refuse.png'></image> -->
+                    </view>
+                    <view class='quanqin'>
+                        <text bindtap='quanqin' bindtap='workOk'>{{resDataVar.attendence}}</text>
+                    </view>
+                    <view class='ok'>
+                        <!-- <image src='../../images/okSub.png'></image> -->
+                    </view>
+                </view>
+
+            </swiper-item>
+             <!-- <swiper-item>
+                <scroll-view scroll-y="ture" style="height:{{winHeight - 230}}px">
+                    <view class='student' wx:for="{{childrenList}}">
+                        <view class='stu'>
+                            {{item.username}}
+                        </view>
+                        <view class='oper'>
+                            <view>
+                                <button bindtap="changePsw" data-name="{{item.username}}" class='reset{{languages}}'>
+                                    {{resDataVar.resetPasswrod}}
+                                </button>
+                            </view>
+                        </view>
+
+                    </view>
+
+                </scroll-view>
+                <view class="modal-footer">
+                    <view class='refuse'>
+                </view>
+                    <view class='freeze'>
+                        <image src='../../images/okSub.png' bindtap='studentOk'></image>
+                    </view>
+                    <view class='ok'>
+                    </view>
+                </view>
+            </swiper-item> -->
+        </swiper>
+
+    </view>
+
+</view>
+
+<view class='lessonPro'>
+    <!--进度条  -->
+    <progress percent="{{lessonPer}}" color="#1f88e4" stroke-width="7" />
+    <text class='curpage'>{{lessonPage}}/{{total_parts}}</text>
+</view>
+
+
+<!--开始课程弹窗-->
+<view class="modal-start-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showStartModal}}"></view>
+<view class="modal-start-dialog" wx:if="{{showStartModal}}">
+    <view class="modal-start-title">{{resDataVar.startL}}</view>
+    <view class="modal-start-content">
+        <text>{{resDataVar.start}}《<text class='lesson'>{{lessonName}}</text>》{{resDataVar.thisLesson}}</text>
+    </view>
+    <view class="modal-start-footer">
+        <view class="start-btn-cancel" bindtap="StartonCancel" data-status="cancel">{{resDataVar.cancel}}</view>
+        <view class="start-btn-confirm" bindtap="StartonConfirm" data-status="confirm">{{resDataVar.confirm}}</view>
+    </view>
+</view>
+
+<!--开始课程弹窗-->
+<view class="modal-End-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showEndModal}}"></view>
+<view class="modal-End-dialog" wx:if="{{showEndModal}}">
+    <view class="modal-End-title">{{resDataVar.endL}}</view>
+    <view class="modal-End-content">
+        <text>{{resDataVar.end}}《<text class='lesson'>{{lessonName}}</text>》{{resDataVar.thisLesson}}</text>
+    </view>
+    <view class="modal-End-footer">
+        <view class="End-btn-cancel" bindtap="EndonCancel" data-status="cancel">{{resDataVar.cancel}}</view>
+        <view class="End-btn-confirm" bindtap="EndonConfirm" data-status="confirm">{{resDataVar.confirm}}</view>
+    </view>
+</view>

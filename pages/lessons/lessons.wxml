@@ -1,0 +1,16 @@
+<view class='page'>
+    <view class="all">
+        <!-- <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}"> -->
+            <view wx:for="{{lesson}}" bindtap='opens' data-index="{{item.index}}" data-id="{{item.id}}" data-count="{{item.termLessonCount}}" style='height:{{winHeight/4}}px'>
+                <!--单个课程  -->
+                <button class='lessons this{{item.css}}' style='height:{{winHeight/4-15}}px' disabled="{{item.disabled}}">
+                    <view class="title">
+                        <text class='lessonTitle tst'>{{item.names}}</text>
+                        <text class='lessonCourses tst'>{{item.termFinishedLessonCount}}/{{item.termLessonCount}} {{resDataVar.Completed}}</text>
+                    </view>
+                    <image src="{{item.url}}"  style='height:{{winHeight/4-20}}px'></image>
+                </button>
+            </view>
+        <!-- </scroll-view> -->
+    </view>
+</view>

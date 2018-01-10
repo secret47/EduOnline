@@ -1,0 +1,42 @@
+<view class="page">
+    <swiper class='swiper' autoplay='true' indicator-dots='true' indicator-color='#dedede' indicator-active-color='#fff'>
+        <!--轮播图  -->
+        <block wx:for="{{indexImgs}}" wx:for-index="index" wx:key="indexImgs">
+            <swiper-item>
+                <image src="{{item.url}}"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+     <!--搜索框  -->
+    <!-- <view class="searchBox">
+        <view class='seachText'>
+            <input  class="search-input" placeholder="课程搜索" value="{{barcode}}" confirm-type="search" bindtap='searchFoucs'/> 
+        </view>
+        <view class='searchBtn' bindtap='searchBtn'>
+            <image src='/images/search.png'></image>
+        </view>
+    </view> -->
+    <!-- 视频 -->
+    <view class='mp4'>
+        <video id="myVideo" src="{{videoUrl}}" controls>
+        </video>  
+    </view>
+     <view class='sfcon'>
+        <image src='../../images/homeTitle.png'></image>
+        <view class='s-cont'>
+            <text class='st-title'>{{resDataVar.ourcurri}}</text>
+            <text class='st-font'>
+                {{resDataVar.curContain1}}
+                {{resDataVar.curContain2}}
+                {{resDataVar.curContain3}}
+                <!-- {{resDataVar.curContain4}} -->
+                
+            </text>
+          </view>
+        <view class='joinImgs{{languages}}'></view>
+    </view> 
+</view>
+
+<view class='searchContain'>
+
+</view>
